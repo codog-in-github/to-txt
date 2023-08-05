@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <input type="text" v-model="ipt" />
+  <button v-for="name in tps"
+          :key="name"
+          @click="tra(name)">{{ name }}</button>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref } from 'vue';
+const tps = ref([]);
+const ipt = ref('');
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+electron.getTemplate().then(res => {
+  tps.value = res;
+});
+
+function tra (name) {
+  electron.transform(name, {
+    input: ipt.value
+  });
 }
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

@@ -1,0 +1,23 @@
+{
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "globals": {
+      "electron":"readonly"
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+        "no-unused-vars": "warn",
+        "indent":["error", 2],
+        "semi": "error",
+        "no-empty": "warn",
+        "quotes": ["error", "single"]
+    }
+  }
