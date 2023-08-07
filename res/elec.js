@@ -1,22 +1,22 @@
 const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const { preloadJs, templateDir, distDir } = require('./filePath');
-const os = require('os');
 const path = require('path');
 const fs = require('fs');
 const tra = require('./tra');
-const allowMac = require('./mac');
 
-const vals =  Object.values(
-  os.networkInterfaces()
-);
-if(!vals.some(
-  item => item.some(
-    item => allowMac.includes(
-      item.mac.toLocaleUpperCase()
-    )
-  )
-)) {
-  throw new Error('HELLO :-)');
+if (app.isPackaged) {
+    const allowMac = require('./mac');
+    const os = require('os');
+    const vals =  Object.values(
+      os.networkInterfaces()
+    );
+    if(!vals.some(
+      item => item.some(
+        item => allowMac.includes(item.mac)
+      )
+    )) {
+      throw new Error('HELLO :-)');
+    }
 }
 
 function createWin () {

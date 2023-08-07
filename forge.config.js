@@ -8,7 +8,8 @@ module.exports = {
       /^\/public\//,
       /^\/\.vscode\//,
       /^\/src\//,
-    ]
+    ],
+    platform: "all"
   },
   rebuildConfig: {},
   makers: [
