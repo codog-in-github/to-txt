@@ -17,13 +17,14 @@ function formateDate(d) {
  
 /**
  * 获取单元格值
- * @param {any[][]} sheet 工作表数据
+ * @param {Array<Array<string|number>>} sheet 工作表数据
  * @param {string} index 单元格地址
  * @returns {string}
  */
 function getCellVal (sheet, index) {
   const [, i, j] = /([A-Z]+)(\d+)/.exec(index);
-  return  sheet[j - 1]?.[en2i(i)] || '';
+  let val = sheet[j - 1]?.[en2i(i)]
+  return val || val === 0 ? val : ''
 }
 
 const methods = {
@@ -61,11 +62,7 @@ const methods = {
     }
   },
   isNotEmpty(val, yes, no = '') {
-    if (val) {
-      return yes;
-    } else {
-      return no;
-    }
+    return val ? yes : no
   }
 };
 
