@@ -23,8 +23,8 @@ function formateDate(d) {
  */
 function getCellVal (sheet, index) {
   const [, i, j] = /([A-Z]+)(\d+)/.exec(index);
-  let val = sheet[j - 1]?.[en2i(i)]
-  return val || val === 0 ? val : ''
+  let val = sheet[j - 1]?.[en2i(i)];
+  return val || val === 0 ? val : '';
 }
 
 const methods = {
@@ -62,7 +62,7 @@ const methods = {
     }
   },
   isNotEmpty(val, yes, no = '') {
-    return val ? yes : no
+    return val ? yes : no;
   }
 };
 
