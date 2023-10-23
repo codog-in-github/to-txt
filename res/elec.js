@@ -5,18 +5,18 @@ const fs = require('fs');
 const tra = require('./tra');
 
 if (app.isPackaged) {
-    const allowMac = require('./mac');
-    const os = require('os');
-    const vals =  Object.values(
-      os.networkInterfaces()
-    );
-    if(!vals.some(
-      item => item.some(
-        item => allowMac.includes(item.mac)
-      )
-    )) {
-      throw new Error('HELLO :-)');
-    }
+  const allowMac = require('./mac');
+  const os = require('os');
+  const vals =  Object.values(
+    os.networkInterfaces()
+  );
+  if(!vals.some(
+    item => item.some(
+      item => allowMac.includes(item.mac)
+    )
+  )) {
+    throw new Error('HELLO :-)');
+  }
 }
 
 function createWin () {
