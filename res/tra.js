@@ -4,6 +4,7 @@ const fs = require('fs');
 const { resolve } = require('path');
 const { templateDir } = require('./filePath');
 const path = require('path');
+
 /**
  * 格式化日期对象  YYYYMMDD 格式
  * @param {Date} d Date
